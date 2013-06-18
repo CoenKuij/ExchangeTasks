@@ -1,0 +1,19 @@
+﻿<Window x:Class="ExchangeTasks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="516" Width="847" >
+    <Grid Name="gridMain">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView ItemsSource="{Binding MyTaskList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Category}" Initialized="Expander_Initialized" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <WebBrowser Grid.Column="1" Height="477" HorizontalAlignment="Left" Margin="10,0,0,0" Name="bodyBrowser" VerticalAlignment="Top" Width="Auto" />
+    </Grid>
+</Window>
