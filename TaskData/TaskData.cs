@@ -43,14 +43,24 @@ namespace TaskData101
     {
         private FindItemsResults<Item> _tasks = null;
 
+        private string _email;
+        private string _password;
+
+        public Tasks(string email, string password)
+        {
+            _email = email;
+            _password = password;
+            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(email, password);
+        }
+
         public Tasks()
         {
-            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks();
+            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(_email, _password);
         }
 
         public void SyncTasks()
         {
-            FindItemsResults<Item> Tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks();     
+            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(_email, _password);
         }
 
         public TaskData FindTasksBySubject(string Subject)

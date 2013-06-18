@@ -12,11 +12,12 @@ namespace Exchange101
     // This sample is for demonstration purposes only. Before you run this sample, make sure that the code meets the coding requirements of your organization.
     public class Ex15_FindTaskBySubject_CS
     {
-        static ExchangeService service = Service.ConnectToService(UserDataFromConsole.GetUserData(), new TraceListener());
+        static ExchangeService service;
         static private FindItemsResults<Item> taskItems = null;
 
-        public static FindItemsResults<Item> RetrieveTasks()
+        public static FindItemsResults<Item> RetrieveTasks(string email, string password)
         {
+            service = Service.ConnectToService(UserDataFromConsole.GetUserData(email, password), new TraceListener());
             // Specify the folder to search, and limit the properties returned in the result.
             TasksFolder tasksfolder = TasksFolder.Bind(service,
                                                         WellKnownFolderName.Tasks,

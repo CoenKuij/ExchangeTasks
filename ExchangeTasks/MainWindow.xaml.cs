@@ -28,11 +28,14 @@ namespace ExchangeTasks
 
         public MainWindow()
         {
-            Tasks t = new Tasks();
-            TaskData td;
-            MyTaskList = new TaskDataList();
 
             InitializeComponent();
+            Credentials logInScreen = new Credentials();
+            logInScreen.ShowDialog();
+
+            Tasks t = new Tasks(logInScreen.textBox1.Text, logInScreen.textBox2.Text);
+            TaskData td;
+            MyTaskList = new TaskDataList();
 
             foreach (string s in t.RetrieveDistinctTaskCategories())
             {
@@ -72,6 +75,9 @@ namespace ExchangeTasks
             Tasks t = new Tasks();
 
             bodyBrowser.NavigateToString(t.FindTasksBySubject(s).Body);
+
+            NewTask newTask = new NewTask();
+            newTask.Show();
         }
     }
 }

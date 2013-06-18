@@ -19,23 +19,24 @@ namespace Exchange101
   {
     private static UserDataFromConsole userData;
 
-    public static IUserData GetUserData()
+    public static IUserData GetUserData(string email, string password)
     {
-      if (userData == null)
-      {
-        GetUserDataFromConsole();
-      }
 
-      return userData;
+        if (userData == null)
+        {
+            GetUserDataFromConsole(email, password);
+        }
+
+        return userData;
     }
 
-    private static void GetUserDataFromConsole()
+    private static void GetUserDataFromConsole(string email, string password)
     {
       userData = new UserDataFromConsole();
 
       //Console.Write("Enter email address: ");
       //userData.EmailAddress = Console.ReadLine();
-      userData.EmailAddress = "";
+      userData.EmailAddress = email;
 
       userData.Password = new SecureString();
 
@@ -69,7 +70,7 @@ namespace Exchange101
 
       Console.WriteLine();
 */
-      foreach (char c in "".ToCharArray())
+      foreach (char c in password.ToCharArray())
       {
           userData.Password.AppendChar(c);
       }
