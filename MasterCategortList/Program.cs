@@ -2,7 +2,7 @@
 using System.Net;
 using Microsoft.Exchange.WebServices.Data;
 
-namespace MasterCategoryList
+namespace TaskInterfaceAbstraction.MasterCategoryList
 {
 	class Program
 	{

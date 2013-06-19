@@ -51,6 +51,10 @@
       <Project>{B4B0C650-87CF-4E11-9F10-B6718826CE18}</Project>
       <Name>TaskInterfaceAbstraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MasterCategortList\MasterCategoryList.csproj">
+      <Project>{bebb8622-6cb4-4676-a42b-0997617bc1c1}</Project>
+      <Name>MasterCategoryList</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

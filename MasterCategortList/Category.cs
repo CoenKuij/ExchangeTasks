@@ -1,7 +1,7 @@
 using System;
 using System.Xml.Serialization;
 
-namespace MasterCategoryList
+namespace TaskInterfaceAbstraction.MasterCategoryList
 {
 	/// <remarks/>
 	[Serializable]

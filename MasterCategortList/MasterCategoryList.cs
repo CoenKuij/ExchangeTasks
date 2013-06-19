@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using Microsoft.Exchange.WebServices.Data;
 
-namespace MasterCategoryList
+namespace TaskInterfaceAbstraction.MasterCategoryList
 {
 	/// <remarks/>
 	[Serializable]

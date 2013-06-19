@@ -78,8 +78,7 @@ namespace ExchangeTasks
 
             NewTask newTask = new NewTask();
 
-
-            newTask.setCategories(t.RetrieveDistinctTaskCategories());
+            newTask.Task = t;
             newTask.Show();
         }
     }

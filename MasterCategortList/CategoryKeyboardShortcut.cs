@@ -1,6 +1,6 @@
 using System.Xml.Serialization;
 
-namespace MasterCategoryList
+namespace TaskInterfaceAbstraction.MasterCategoryList
 {
 	public enum CategoryKeyboardShortcut: byte
 	{

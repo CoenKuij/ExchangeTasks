@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ExchangeAbstraction;
 
 namespace ExchangeTasks
 {
@@ -19,19 +20,37 @@ namespace ExchangeTasks
     /// </summary>
     public partial class NewTask : Window
     {
+        public Tasks Task { get; set; }
+
         public NewTask()
         {
             InitializeComponent();
         }
 
-
-        public void setCategories(SortedSet<string> categories)
+        private void cancel_Click(object sender, RoutedEventArgs e)
         {
-            foreach (string s in categories)
-            {
-                this.Category.Items.Add(s);
-            }
+            this.Close();
+        }
 
+        private void save_Click(object sender, RoutedEventArgs e)
+        {
+            TaskData td = new TaskData();
+
+            td.Subject = this.subject.Text;
+            td.Category = this.category.SelectedItem.ToString();
+            td.Body = this.body.Text;
+
+            Task.AddTask(td);
+
+            this.Close();
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            foreach (string s in Task.GetMasterCategories())
+            {
+                this.category.Items.Add(s);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using ExchangeAbstraction;
 using Microsoft.Exchange.WebServices.Data;
 using System.Collections.ObjectModel;
-
+using TaskInterfaceAbstraction.MasterCategoryList;
 
 namespace ExchangeAbstraction
 {
@@ -141,6 +141,20 @@ namespace ExchangeAbstraction
             return taskList;
         }
 
+        public SortedSet<string> GetMasterCategories()
+        {
+            SortedSet<string> returnSet = new SortedSet<string>();
+
+            var catList = MasterCategoryList.Bind(TaskInterfaceAbstraction.GetService(_email, _password));
+
+            for (int i = 0; i < catList.Categories.Count; i++)
+            {
+                returnSet.Add(catList.Categories[i].Name);
+            }
+
+            return returnSet;
+        }
+
         public SortedSet<string> RetrieveDistinctTaskCategories()
         {
             /*
@@ -157,7 +171,6 @@ namespace ExchangeAbstraction
 
             SortedSet<string> categoryList = new SortedSet<string>();
 
-            TaskInterfaceAbstraction.GetCategoryMasterList(_email, _password);
 
             foreach (Task t in _tasks)
             {
@@ -168,18 +181,17 @@ namespace ExchangeAbstraction
                 }
             }
             return categoryList;
-
         }
 
         public void AddTask(TaskData task)
         {
-            Task taskItem =  TaskInterfaceAbstraction.CreateTask(_email, _password);
+            Task t = new Task(TaskInterfaceAbstraction.GetService(_email, _password));
 
-            taskItem.Subject = task.Subject;
-            taskItem.Categories.Add(task.Category);
-            taskItem.Body = new MessageBody(BodyType.Text, task.Body);
+            t.Subject = task.Subject;
+            t.Categories.Add(task.Category);
+            t.Body = new MessageBody(BodyType.Text, task.Body);
 
-            TaskInterfaceAbstraction.AddTask(_email, _password, taskItem);
+            TaskInterfaceAbstraction.AddTask(_email, _password, t);
         }
 
         private TaskData CreateTask(Task t)
