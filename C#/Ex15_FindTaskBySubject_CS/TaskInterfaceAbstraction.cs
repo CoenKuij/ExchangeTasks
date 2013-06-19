@@ -3,21 +3,27 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using Exchange101;
+using ExchangeAbstraction;
 using Microsoft.Exchange.WebServices.Data;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
-namespace Exchange101
+namespace ExchangeAbstraction
 {
 
     // This sample is for demonstration purposes only. Before you run this sample, make sure that the code meets the coding requirements of your organization.
-    public class Ex15_FindTaskBySubject_CS
+    public class TaskInterfaceAbstraction
     {
-        static ExchangeService service;
+        static ExchangeService service = null;
         static private FindItemsResults<Item> taskItems = null;
 
         public static FindItemsResults<Item> RetrieveTasks(string email, string password)
         {
-            service = Service.ConnectToService(UserDataFromConsole.GetUserData(email, password), new TraceListener());
+            if (service == null)
+            {
+                service = Service.ConnectToService(UserDataFromConsole.GetUserData(email, password), new TraceListener());
+            }
             // Specify the folder to search, and limit the properties returned in the result.
             TasksFolder tasksfolder = TasksFolder.Bind(service,
                                                         WellKnownFolderName.Tasks,
@@ -48,5 +54,32 @@ namespace Exchange101
             }
         }
 
-    }
+        public static void AddTask(string email, string password, Item task) 
+        { 
+            if (service == null)
+            {
+                service = Service.ConnectToService(UserDataFromConsole.GetUserData(email, password), new TraceListener());
+            }
+            
+            // Create the new task in the specified destination folder. 
+            task.Save(WellKnownFolderName.Tasks); 
+
+            Console.WriteLine("Recurring task created."); 
+        }
+
+        public static Task CreateTask(string email, string password)
+        {
+            if (service == null)
+            {
+                service = Service.ConnectToService(UserDataFromConsole.GetUserData(email, password), new TraceListener());
+            }
+            return new Task(service);
+        }
+
+        public static void GetCategoryMasterList(string email, string password)
+        {
+           
+        }
+
+    } 
 }

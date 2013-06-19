@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B4B0C650-87CF-4E11-9F10-B6718826CE18}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{BEBB8622-6CB4-4676-A42B-0997617BC1C1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exchange101</RootNamespace>
-    <AssemblyName>Ex15_FindTaskBySubject_CS</AssemblyName>
+    <RootNamespace>MasterCategoryList</RootNamespace>
+    <AssemblyName>MasterCategoryList</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -34,13 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Exchange.WebServices">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft\Exchange\Web Services\2.0\Microsoft.Exchange.WebServices.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Microsoft\Exchange\Web Services\2.0\Microsoft.Exchange.WebServices.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,17 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ex15_FindTaskBySubject_CS.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryColor.cs" />
+    <Compile Include="CategoryKeyboardShortcut.cs" />
+    <Compile Include="MasterCategoryList.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Authentication\Authentication.csproj">
-      <Project>{9E50BA8E-305C-4C20-81E6-19FFD3D0BE5B}</Project>
-      <Name>Authentication</Name>
-    </ProjectReference>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

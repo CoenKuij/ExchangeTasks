@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Exchange101
+namespace ExchangeAbstraction
 {
   public static class CertificateCallback
   {

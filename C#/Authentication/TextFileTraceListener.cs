@@ -3,7 +3,7 @@ using System.IO;
 
 using Microsoft.Exchange.WebServices.Data;
 
-namespace Exchange101
+namespace ExchangeAbstraction
 {
   public class TraceListener : ITraceListener
   {

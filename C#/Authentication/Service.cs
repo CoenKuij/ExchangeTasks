@@ -3,7 +3,7 @@ using System.Net;
 
 using Microsoft.Exchange.WebServices.Data;
 
-namespace Exchange101
+namespace ExchangeAbstraction
 {
   public static class Service
   {

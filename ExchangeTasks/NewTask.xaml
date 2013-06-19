@@ -17,7 +17,7 @@
         <Label Grid.Row="1" Content="Category:" Height="28" HorizontalAlignment="Right"  Name="label2" VerticalAlignment="Top" />
         <Label Grid.Row="2" Content="Body:" Height="28" HorizontalAlignment="Right"  Name="label3" VerticalAlignment="Top" />
         <TextBox Grid.Column="1" Grid.Row="0" Height="23" HorizontalAlignment="Left" Name="subject" VerticalAlignment="Center" Width="266" />
-        <ComboBox Grid.Column="1" Grid.Row="1"  Height="23" HorizontalAlignment="Left" Name="Category" VerticalAlignment="Center" Width="150" />
+        <ComboBox Grid.Column="1" Grid.Row="1"  Height="23" HorizontalAlignment="Left" Name="Category" VerticalAlignment="Center" Width="150" IsEditable="True" />
         <TextBox TextWrapping="Wrap" AcceptsReturn="True" Grid.Column="1" Grid.Row="2" Height="186" HorizontalAlignment="Left"  Name="body" Text="" VerticalAlignment="Center" Width="266" />
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="3" Height="100" HorizontalAlignment="Left" Name="stackPanel1" VerticalAlignment="Center" Width="380">
             <Button Margin="100,0,0,0" Content="Cancel" Height="23" Name="button1" Width="75" />

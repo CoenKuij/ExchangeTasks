@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,16 @@ namespace ExchangeTasks
         public NewTask()
         {
             InitializeComponent();
+        }
+
+
+        public void setCategories(SortedSet<string> categories)
+        {
+            foreach (string s in categories)
+            {
+                this.Category.Items.Add(s);
+            }
+
         }
     }
 }

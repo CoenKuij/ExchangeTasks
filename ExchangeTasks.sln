@@ -1,13 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeTasks", "ExchangeTasks\ExchangeTasks.csproj", "{C3360FBE-93EA-422F-983E-D3D98C07CB5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskData", "TaskData\TaskData.csproj", "{BFF4A1B2-F70E-45AE-9FC9-4B072CC61844}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "C#\Authentication\Authentication.csproj", "{9E50BA8E-305C-4C20-81E6-19FFD3D0BE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ex15_FindTaskBySubject_CS", "C#\Ex15_FindTaskBySubject_CS\Ex15_FindTaskBySubject_CS.csproj", "{B4B0C650-87CF-4E11-9F10-B6718826CE18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskInterfaceAbstraction", "C#\Ex15_FindTaskBySubject_CS\TaskInterfaceAbstraction.csproj", "{B4B0C650-87CF-4E11-9F10-B6718826CE18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

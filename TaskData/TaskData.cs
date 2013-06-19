@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Exchange101;
+using ExchangeAbstraction;
 using Microsoft.Exchange.WebServices.Data;
 using System.Collections.ObjectModel;
 
 
-namespace TaskData101
+namespace ExchangeAbstraction
 {
     public class TaskDataList : ObservableCollection<TaskData>
     {
@@ -50,17 +50,17 @@ namespace TaskData101
         {
             _email = email;
             _password = password;
-            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(email, password);
+            _tasks = TaskInterfaceAbstraction.RetrieveTasks(email, password);
         }
 
         public Tasks()
         {
-            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(_email, _password);
+            _tasks = TaskInterfaceAbstraction.RetrieveTasks(_email, _password);
         }
 
         public void SyncTasks()
         {
-            _tasks = Ex15_FindTaskBySubject_CS.RetrieveTasks(_email, _password);
+            _tasks = TaskInterfaceAbstraction.RetrieveTasks(_email, _password);
         }
 
         public TaskData FindTasksBySubject(string Subject)
@@ -157,6 +157,8 @@ namespace TaskData101
 
             SortedSet<string> categoryList = new SortedSet<string>();
 
+            TaskInterfaceAbstraction.GetCategoryMasterList(_email, _password);
+
             foreach (Task t in _tasks)
             {
                 string category = GetCategory(t);
@@ -167,6 +169,17 @@ namespace TaskData101
             }
             return categoryList;
 
+        }
+
+        public void AddTask(TaskData task)
+        {
+            Task taskItem =  TaskInterfaceAbstraction.CreateTask(_email, _password);
+
+            taskItem.Subject = task.Subject;
+            taskItem.Categories.Add(task.Category);
+            taskItem.Body = new MessageBody(BodyType.Text, task.Body);
+
+            TaskInterfaceAbstraction.AddTask(_email, _password, taskItem);
         }
 
         private TaskData CreateTask(Task t)

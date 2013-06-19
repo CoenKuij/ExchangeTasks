@@ -14,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TaskData101;
+using ExchangeAbstraction;
 
 namespace ExchangeTasks
 {
@@ -77,6 +77,9 @@ namespace ExchangeTasks
             bodyBrowser.NavigateToString(t.FindTasksBySubject(s).Body);
 
             NewTask newTask = new NewTask();
+
+
+            newTask.setCategories(t.RetrieveDistinctTaskCategories());
             newTask.Show();
         }
     }

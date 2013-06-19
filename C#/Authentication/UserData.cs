@@ -5,7 +5,7 @@ using System.Text;
 using System.Security;
 using Microsoft.Exchange.WebServices.Data;
 
-namespace Exchange101
+namespace ExchangeAbstraction
 {
   public interface IUserData
   {
